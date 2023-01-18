@@ -18,3 +18,8 @@ bot.on("message", msg => {
 	if(body.endsWith("где"))   bot.sendSticker(msg.chat.id, rand(gde),   { "reply_to_message_id": msg.message_id });
 	if(body.endsWith("ладно")) bot.sendSticker(msg.chat.id, rand(ladno), { "reply_to_message_id": msg.message_id });
 });
+
+require("http").createServer((req, res) => {
+	res.writeHead(200);
+	res.end("ok");
+}).listen(7070);
