@@ -12,7 +12,7 @@ const bot = new TelegramBot(token, { "polling": true });
 bot.on("message", msg => {
 	//bot.sendSticker(msg.chat.id, fileid);
 	if(!msg.text) return;
-	const body = msg.text.match(/[а-я]/gi).join("");
+	const body = msg.text.match(/[а-я]/gi).join("").toLowerCase();
 	if(body.endsWith("да"))    bot.sendSticker(msg.chat.id, rand(da),    { "reply_to_message_id": msg.message_id });
 	if(body.endsWith("нет"))   bot.sendSticker(msg.chat.id, rand(net),   { "reply_to_message_id": msg.message_id });
 	if(body.endsWith("где"))   bot.sendSticker(msg.chat.id, rand(gde),   { "reply_to_message_id": msg.message_id });
